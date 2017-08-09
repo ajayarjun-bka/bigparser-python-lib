@@ -2,3 +2,5 @@
 setup.py
 setup.cfg
 app.py
+bigparser.egg-info/
+dist/
