@@ -161,7 +161,7 @@ Here "year" is the column name and the value can be "ASC" for ascending order an
 ---
 ### getLastRow
 ```python
- getRow(c,ountsearchFilter,sort,columns)
+ getRow(count,searchFilter,sort,columns)
 ```
 *To fetch rows from the grid*
 
