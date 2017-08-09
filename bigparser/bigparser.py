@@ -7,7 +7,8 @@ API to authenticate and fetch the required data
 @author Ajay Arjun
 @version 1.0
 '''
-
+prod_uri = "https://www.bigparser.com/APIServices/";
+qa_uri = "https://qa.bigparser.com/APIServices/";
 
 class bigparser:
     '''
@@ -192,8 +193,8 @@ class bigparser:
         return response
 
     @classmethod
-    def getLastRow(self, authId, gridId, rowCount=50, selectColumnsStoreName=None, tags=None,
-                   keywords=None, sortFields=None):
+    def getLastRow(self, authId, gridId,count=None, rowCount=50, selectColumnsStoreName=None, tags=None,
+                keywords=None, sortKeys=None):
         uri = "https://www.bigparser.com/APIServices/api/query/table"
         headers = {'content-type': 'application/json', 'authId': '' + authId + ''}
         data = dict()
@@ -205,14 +206,17 @@ class bigparser:
             data['tags'] = tags
         if keywords is not None:
             data['keywords'] = keywords
-        if sortFields is not None:
-            data['sortFields'] = sortFields
-        response = bigparser.post(self, uri, headers, data)
-        count = (response['count'])
-        uri = bigparser.prod_uri + "api/query/table?startIndex=" + str(count) + "&endIndex=" + str(
-            count)
-        response = bigparser.post(self, uri, headers, data)
-        print(response)
+        if sortKeys is not None:
+            data['sortFields'] = sortKeys
+        response = bigparser.__post(self,uri, headers, data)
+        gridCount = response["count"]
+        if count is None:
+            uri = prod_uri + "api/query/table?startIndex=" + str(gridCount) + "&endIndex=" + str(gridCount)
+        else:
+            uri = prod_uri + "api/query/table?startIndex=" + str((gridCount-count)+1) + "&endIndex=" + str(gridCount)
+        data.pop('rowCount',None)
+        response = bigparser.__post(self, uri, headers, data)
+        return response
 
     @classmethod
     def isFileExists(self, authId, filename):
