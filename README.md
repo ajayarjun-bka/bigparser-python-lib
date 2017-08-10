@@ -131,7 +131,7 @@ print(rows)
    `searchFilter` - Map containing global level searches and column level searches
         
   ```python
-       {'GLOBAL': ['x-men'], 'language ': 'english'}
+       {'GLOBAL': ['x-men'], 'language ': ['english','French']}
   ```
     
 Anything that has to be searched on global level should go in to the list under the key "GLOBAL". For terms which are to be searched on columns should be specifies as key and values where is the column name and value is the term to be searched. 
