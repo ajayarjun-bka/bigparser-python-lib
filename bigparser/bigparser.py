@@ -1,5 +1,6 @@
 import requests
 import json
+import sys
 
 '''
 BpData This class implements the methods needed to connect to BigParser's
@@ -25,7 +26,6 @@ class bigparser:
     def __post(self, uri, headers, data):
         try:
             response = requests.post(uri, data=json.dumps(data), headers=headers)
-            # print(response)
             response.raise_for_status()
             if response.status_code == 200:
                 if len(response.text):
@@ -34,17 +34,33 @@ class bigparser:
                     return "200"
                 return responseData
         except requests.exceptions.HTTPError as err:
-            print("Http Error")
-            raise RuntimeError(err.response.text)
+            try:
+                bigparser.throws(self,err.response.text)
+                return 0
+            except Exception as err:
+                sys.stderr.write('ERROR: %sn' % str(err))
+                exit(-1)
         except requests.exceptions.Timeout as err:
-            print("TimeOut")
-            raise RuntimeError(err.response.text)
+            try:
+                bigparser.throws(self,err.response.text)
+                return 0
+            except Exception as err:
+                sys.stderr.write('ERROR: %sn' % str(err))
+                exit(-1)
         except requests.exceptions.ConnectionError as err:
-            print("ConnectionError")
-            raise RuntimeError(err.response.text)
+            try:
+                bigparser.throws(self,err.response.text)
+                return 0
+            except Exception as err:
+                sys.stderr.write('ERROR: %sn' % str(err))
+                exit(-1)
         except requests.exceptions.RequestException as err:
-            print("Error")
-            raise RuntimeError(err.response.text)
+            try:
+                bigparser.throws(self,err.response.text)
+                return 0
+            except Exception as err:
+                sys.stderr.write('ERROR: %sn' % str(err))
+                exit(-1)
 
     '''
     This method makes generic get calls
@@ -63,17 +79,37 @@ class bigparser:
                 responseData = json.loads(response.text)
                 return responseData
         except requests.exceptions.HTTPError as err:
-            print("Http Error")
-            return err.response.text
+            try:
+                bigparser.throws(self,err.response.text)
+                return 0
+            except Exception as err:
+                sys.stderr.write('ERROR: %sn' % str(err))
+                exit(-1)
         except requests.exceptions.Timeout as err:
-            print("TimeOUt")
-            return err.response.text
+            try:
+                bigparser.throws(self,err.response.text)
+                return 0
+            except Exception as err:
+                sys.stderr.write('ERROR: %sn' % str(err))
+                exit(-1)
         except requests.exceptions.ConnectionError as err:
-            print("ConnectionError")
-            return err.response.text
+            try:
+                bigparser.throws(self,err.response.text)
+                return 0
+            except Exception as err:
+                sys.stderr.write('ERROR: %sn' % str(err))
+                exit(-1)
         except requests.exceptions.RequestException as err:
-            print("Error")
-            return err.response.text
+            try:
+                bigparser.throws(self,err.response.text)
+                return 0
+            except Exception as err:
+                sys.stderr.write('ERROR: %sn' % str(err))
+                exit(-1)
+
+    def throws(self,message):
+        raise RuntimeError(message)
+
 
     '''
     This method performs the task of login into BigParser account and fetch authId for future calls
