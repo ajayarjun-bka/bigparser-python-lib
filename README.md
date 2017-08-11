@@ -111,10 +111,10 @@ print(rows)
 ### Output
 ```
 [
-  ['X-Men: Apocalypse', '2016'.....], 
-  ['Warcraft', '2016'.....], 
-  ['Captain America: Civil War', '2016'.....]
-  ........
+  ['X-Men: Apocalypse', '2016'],
+  ['Warcraft', '2016'], 
+  ['Captain America: Civil War', '2016'], 
+  ['The Do-Over', '2016']....
 ]
 ```
 ---
