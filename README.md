@@ -104,7 +104,7 @@ print(rows)
 *Another example*
 
 ```python
-rows = movies.getRows(searchfilter={'year': '2005'},columns=['film name ','year'])
+rows = movies.getRows(searchfilter={'year': '2016'},columns=['film name ','year'])
 print(rows)
 ```
 
