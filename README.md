@@ -118,7 +118,7 @@ print(rows)
 ]
 ```
 ---
-### Description of Available methods:
+### Description of Available Auth Methods:
 
 
 ### login
@@ -136,6 +136,24 @@ print(rows)
    `password` - password to login into BigParser account
    
 ---
+
+### Description of Grid Constructor:
+
+```python
+ grid(authId, gridId)
+```
+*Creates a grid object
+**Parameters**
+
+#### ***Required Parameters:***
+ 
+   `authId` - authId of you account retreived from login method
+   
+   `gridId` - gridId of your grid. It can be found in the url of the grid.
+
+
+### Description of Available Grid Methods:
+
 
 ### getRows
 ```python
