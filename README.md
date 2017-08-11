@@ -202,7 +202,7 @@ Here "year" is the column name and the value can be "ASC" for ascending order an
 ```python
  getRow(count,searchFilter,sort,columns)
 ```
-*Fetchches rows from the grid*
+*Fetches rows from the grid*
 
 **Parameters**
 
