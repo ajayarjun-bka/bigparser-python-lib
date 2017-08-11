@@ -5,13 +5,13 @@ Python client library for BigParser's API to fetch data from grids.
 
 ## How to Install the package?
 
-To install bigparser just type the following command:
+To install bigparser just type the following command in terminal:
 
 ```python
 $ pip install bigparser
 ```
-
-Right now supports only python 3.3 and up. Soon python 2.7 and up will be included. 
+ 
+Currently only supports python 3.3 and up. Later versions will include python 2.7 and up.
 
 ## How to Import bigparser module into your code?
 
@@ -53,7 +53,7 @@ from bigparser import auth
 
 authId = auth.login("username", "password") #Store authId for future use
 ```
-authId has to be passed in whenver a grid Object is created 
+authId has to be passed in whenever a grid Object is created 
 ### Step 2:
 
 Create a object for the grid from which you wish to fetch data.
@@ -118,14 +118,14 @@ print(rows)
 ]
 ```
 ---
-### Description of Available methods:
+### Description of Available Auth Methods:
 
 
 ### login
 ```python
  login(emailId,password)
 ```
-*Logins into BigParser account and returns the authId*
+*Logs into BigParser account and returns the authId*
 
 **Parameters**
 
@@ -137,11 +137,29 @@ print(rows)
    
 ---
 
+### Description of Grid Constructor:
+
+```python
+ grid(authId, gridId)
+```
+*Creates a grid object
+**Parameters**
+
+#### ***Required Parameters:***
+ 
+   `authId` - authId of you account retreived from login method
+   
+   `gridId` - gridId of your grid. It can be found in the url of the grid.
+
+
+### Description of Available Grid Methods:
+
+
 ### getRows
 ```python
  getRows(rows,searchFilter,sort,columns)
 ```
-*To fetch rows from the grid*
+*Fetches rows from the grid*
 
 **Parameters**
 
@@ -155,7 +173,7 @@ print(rows)
        {'GLOBAL': ['x-men'], 'language ': ['english','French']}
   ```
     
-Anything that has to be searched on global level should go in to the list under the key "GLOBAL". For terms which are to be searched on columns should be specifies as key and values where is the column name and value is the term to be searched. 
+Anything that has to be searched on a global level should go in to the list under the key "GLOBAL". Terms which are to be searched within columns should be specified as key and value(s) where key is the column name and value(s) is the term(s) to be searched. 
 
    `sort` - List of dictionaries containing the column to be sorted and their order 
    
@@ -177,14 +195,14 @@ Here "year" is the column name and the value can be "ASC" for ascending order an
 ```python
  getHeaders()
 ```
-*To fetch headers of the specified grid*
+*Fetches headers of the grid*
 
 ---
 ### getLastRow
 ```python
  getRow(count,searchFilter,sort,columns)
 ```
-*To fetch rows from the grid*
+*Fetches rows from the grid*
 
 **Parameters**
 
