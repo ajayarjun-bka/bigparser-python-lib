@@ -86,9 +86,30 @@ rows = movies.getRows()
 print(rows)
 ```
 **Sample Output**
+
 *returns a list of rows.*
 
 ```python
+[
+  ['X-Men: Apocalypse', '2016'.....], 
+  ['Warcraft', '2016'.....], 
+  ['Captain America: Civil War', '2016'.....]
+  ........
+]
+```
+
+
+
+
+*Another example*
+
+```python
+rows = movies.getRows(searchfilter={'year': '2005'},columns=['film name ','year'])
+print(rows)
+```
+
+### Output
+```
 [
   ['X-Men: Apocalypse', '2016'.....], 
   ['Warcraft', '2016'.....], 
@@ -128,7 +149,7 @@ print(rows)
  
    `rows` - Number of rows to be fetched from the matching resuslts
    
-   `searchFilter` - Map containing global level searches and column level searches
+   `searchFilter` - Dictionary containing global level searches and column level searches
         
   ```python
        {'GLOBAL': ['x-men'], 'language ': ['english','French']}
@@ -136,7 +157,7 @@ print(rows)
     
 Anything that has to be searched on global level should go in to the list under the key "GLOBAL". For terms which are to be searched on columns should be specifies as key and values where is the column name and value is the term to be searched. 
 
-   `sort` - List of maps containing the column to be sorted and their order 
+   `sort` - List of dictionaries containing the column to be sorted and their order 
    
   ```python
        [{"year": "ASC"}]
@@ -171,7 +192,7 @@ Here "year" is the column name and the value can be "ASC" for ascending order an
  
    `count` - Number of rows to be fetched from the bottom of the matching resuslts
    
-   `searchFilter` - Map containing global level searches and column level searches
+   `searchFilter` - Dictionary containing global level searches and column level searches
         
   ```python
        {'GLOBAL': ['x-men'], 'language ': 'english'}
@@ -179,7 +200,7 @@ Here "year" is the column name and the value can be "ASC" for ascending order an
     
 Anything that has to be searched on global level should go in to the list under the key "GLOBAL". For terms which are to be searched on columns should be specifies as key and values where is the column name and value is the term to be searched. 
 
-   `sort` - List of maps containing the column to be sorted and their order 
+   `sort` - List of dictionariess containing the column to be sorted and their order 
    
   ```python
        [{"year": "ASC"}]
