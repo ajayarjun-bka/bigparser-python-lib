@@ -143,6 +143,7 @@ print(rows)
  grid(authId, gridId)
 ```
 *Creates a grid object*
+
 **Parameters**
 
 #### ***Required Parameters:***
@@ -150,7 +151,8 @@ print(rows)
    `authId` - authId of you account retreived from login method
    
    `gridId` - gridId of your grid. It can be found in the url of the grid.
-
+   
+---
 
 ### Description of Available Grid Methods:
 
