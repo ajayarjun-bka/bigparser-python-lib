@@ -142,7 +142,7 @@ print(rows)
 ```python
  grid(authId, gridId)
 ```
-*Creates a grid object
+*Creates a grid object*
 **Parameters**
 
 #### ***Required Parameters:***
@@ -216,7 +216,7 @@ Here "year" is the column name and the value can be "ASC" for ascending order an
        {'GLOBAL': ['x-men'], 'language ': 'english'}
   ```
     
-Anything that has to be searched on global level should go in to the list under the key "GLOBAL". For terms which are to be searched on columns should be specifies as key and values where is the column name and value is the term to be searched. 
+Anything that has to be searched on a global level should go in to the list under the key "GLOBAL". Terms which are to be searched within columns should be specified as key and value(s) where key is the column name and value(s) is the term(s) to be searched. 
 
    `sort` - List of dictionariess containing the column to be sorted and their order 
    
